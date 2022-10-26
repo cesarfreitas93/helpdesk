@@ -1,0 +1,25 @@
+server:
+  port: 33115
+  servlet:
+    context-path: /backend
+spring:
+  application:
+    name: farellProject
+  jmx:
+    enabled: true
+  jpa:
+    show-sql: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DS_PERDB_URL}
+    username: ${R_DB_USR}
+    password: ${R_DB_PWD}
+    type: com.zaxxer.hikari.HikariDataSource
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+
+security:
+  jwt:
+    secret: "HOLAMUNDO"
+    expiration: 36000
