@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.model.entity;
+package pe.farell.go.backend.security.model.entity;
 
 import pe.farell.go.backend.model.entity.AuditModel;
 

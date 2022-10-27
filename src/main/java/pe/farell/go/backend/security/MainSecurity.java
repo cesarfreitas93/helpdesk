@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security;
+package pe.farell.go.backend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,9 +13,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import pe.farell.go.backend.exception.security.jwt.JwtEntryPoint;
-import pe.farell.go.backend.exception.security.service.UserDetailsServiceImpl;
-import pe.farell.go.backend.exception.security.jwt.JwtTokenFilter;
+import pe.farell.go.backend.security.jwt.JwtEntryPoint;
+import pe.farell.go.backend.security.service.UserDetailsServiceImpl;
+import pe.farell.go.backend.security.jwt.JwtTokenFilter;
 
 @Configuration
 @EnableWebSecurity

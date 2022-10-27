@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.jwt;
+package pe.farell.go.backend.security.jwt;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,7 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
-import pe.farell.go.backend.exception.security.service.UserDetailsServiceImpl;
+import pe.farell.go.backend.security.service.UserDetailsServiceImpl;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

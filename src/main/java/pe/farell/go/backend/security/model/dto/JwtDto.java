@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.model.dto;
+package pe.farell.go.backend.security.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.controller;
+package pe.farell.go.backend.security.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.farell.go.backend.constant.EnumResponse;
 import pe.farell.go.backend.exception.ValidationException;
-import pe.farell.go.backend.exception.security.enums.RolName;
-import pe.farell.go.backend.exception.security.jwt.JwtProvider;
-import pe.farell.go.backend.exception.security.model.dto.JwtDto;
-import pe.farell.go.backend.exception.security.model.dto.LoginUser;
-import pe.farell.go.backend.exception.security.model.dto.NewUser;
-import pe.farell.go.backend.exception.security.model.entity.Rol;
-import pe.farell.go.backend.exception.security.model.entity.User;
-import pe.farell.go.backend.exception.security.service.RolService;
-import pe.farell.go.backend.exception.security.service.UserService;
+import pe.farell.go.backend.security.enums.RolName;
+import pe.farell.go.backend.security.jwt.JwtProvider;
+import pe.farell.go.backend.security.model.dto.JwtDto;
+import pe.farell.go.backend.security.model.dto.LoginUser;
+import pe.farell.go.backend.security.model.dto.NewUser;
+import pe.farell.go.backend.security.model.entity.Rol;
+import pe.farell.go.backend.security.model.entity.User;
+import pe.farell.go.backend.security.service.RolService;
+import pe.farell.go.backend.security.service.UserService;
 import pe.farell.go.backend.model.dto.response.Response;
 
 import javax.validation.Valid;

@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.jwt;
+package pe.farell.go.backend.security.jwt;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;

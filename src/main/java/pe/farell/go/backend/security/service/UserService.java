@@ -1,9 +1,9 @@
-package pe.farell.go.backend.exception.security.service;
+package pe.farell.go.backend.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.farell.go.backend.exception.security.repository.UserRepository;
-import pe.farell.go.backend.exception.security.model.entity.User;
+import pe.farell.go.backend.security.repository.UserRepository;
+import pe.farell.go.backend.security.model.entity.User;
 
 import javax.transaction.Transactional;
 import java.util.Optional;

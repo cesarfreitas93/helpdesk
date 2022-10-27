@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.jwt;
+package pe.farell.go.backend.security.jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-import pe.farell.go.backend.exception.security.model.entity.MainUser;
+import pe.farell.go.backend.security.model.entity.MainUser;
 
 import java.util.Date;
 

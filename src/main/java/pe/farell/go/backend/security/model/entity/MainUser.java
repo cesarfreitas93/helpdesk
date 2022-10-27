@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.model.entity;
+package pe.farell.go.backend.security.model.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

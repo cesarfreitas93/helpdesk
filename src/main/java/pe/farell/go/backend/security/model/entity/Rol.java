@@ -1,6 +1,6 @@
-package pe.farell.go.backend.exception.security.model.entity;
+package pe.farell.go.backend.security.model.entity;
 
-import pe.farell.go.backend.exception.security.enums.RolName;
+import pe.farell.go.backend.security.enums.RolName;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

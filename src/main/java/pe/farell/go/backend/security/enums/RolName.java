@@ -1,4 +1,4 @@
-package pe.farell.go.backend.exception.security.enums;
+package pe.farell.go.backend.security.enums;
 
 public enum RolName {
 
