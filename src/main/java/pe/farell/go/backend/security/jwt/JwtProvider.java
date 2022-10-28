@@ -1,10 +1,12 @@
 package pe.farell.go.backend.security.jwt;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.UnsupportedJwtException;
+import io.jsonwebtoken.impl.DefaultClaims;
 import io.jsonwebtoken.security.SignatureException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,13 +37,19 @@ public class JwtProvider {
     }
 
     public String getUsernameFromToken(String token) {
-        return Jwts.parser().setSigningKey(secret).parseClaimsJwt(token).getBody().getSubject();
+        Claims claims = new DefaultClaims();
+        try{
+            claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        } catch (SignatureException e){
+            log.error("Error getUsernameFromToken: {}", e.getMessage());
+        }
+
+        return claims.getSubject();
     }
 
     public boolean validateToken(String token) {
         try {
-            String r = Jwts.parser().setSigningKey(secret.trim()).parseClaimsJwt(token.trim()).getBody().getSubject();
-
+            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
             return true;
         } catch (MalformedJwtException e) {
             log.error("Api-Token-Provider: bad formed |  ERROR: {}", e.getMessage());
