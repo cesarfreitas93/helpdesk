@@ -34,7 +34,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin("*")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -64,7 +64,11 @@ public class AuthController {
         User user = new User(newUser.getUsername(), passwordEncoder.encode(newUser.getPassword()), "{}", 1);
 
         Set<Rol> roles = new HashSet<>();
-        roles.add(rolService.getByRolName(RolName.ROLE_TECHNICAL).get());
+        roles.add(rolService.getByRolName(RolName.ROLE_USER).get());
+        if (newUser.getRoles().contains("tecnico")) {
+            roles.add(rolService.getByRolName(RolName.ROLE_TECHNICAL).get());
+        }
+
         if (newUser.getRoles().contains("supervisor")) {
             roles.add(rolService.getByRolName(RolName.ROLE_SUPERVISOR).get());
         }
