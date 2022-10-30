@@ -50,7 +50,6 @@ public class SwaggerConfig {
                 .build();
     }
 
-    /*
     private ApiInfo apiInfo() {
         Contact contact = new Contact("Freitas Cespedes, Cesar Alberto", "http://cesarfreitas.com", "u18306877@utp.edu.pe");
         return new ApiInfoBuilder()
@@ -62,18 +61,7 @@ public class SwaggerConfig {
                 .version("2022.1.0")
                 .build();
     }
-    */
 
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-                "My REST API",
-                "Some custom description of API.",
-                "1.0",
-                "Terms of service",
-                new Contact("Sallo Szrajbman", "www.baeldung.com", "salloszraj@gmail.com"),
-                "License of API",
-                "API license URL",
-                Collections.emptyList());
-    }
+
 
 }

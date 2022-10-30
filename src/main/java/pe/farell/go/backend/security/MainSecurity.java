@@ -16,12 +16,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import pe.farell.go.backend.security.jwt.JwtEntryPoint;
 import pe.farell.go.backend.security.service.UserDetailsServiceImpl;
 import pe.farell.go.backend.security.jwt.JwtTokenFilter;
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MainSecurity extends WebSecurityConfigurerAdapter {
 
+public class MainSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 

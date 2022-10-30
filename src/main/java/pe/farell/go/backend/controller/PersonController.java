@@ -23,7 +23,7 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @ApiOperation("Bloqueo temporal, bloqueo permanente o desbloqueo de una tarjeta con bloqueo temporal")
+    @ApiOperation("Consulta de todas las personas del sistema")
     @GetMapping("/all")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Ok", response = ResponseBase.class),
