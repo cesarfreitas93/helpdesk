@@ -107,4 +107,14 @@ public class AuthController {
         return new ResponseEntity<>(jwtDto, HttpStatus.OK);
     }
 
+    @PostMapping("/validation")
+    public ResponseEntity<Response> validateToken(@Valid @RequestBody JwtDto dto) {
+        boolean validation = jwtProvider.validateToken(dto.getToken());
+        Response response = new Response();
+        response.setData(validation);
+        response.setCode(validation ? EnumResponse.C001.getCode() : EnumResponse.C000.getCode());
+        response.setMsg(validation ? "Authentication Ok" : "Authentication Fail");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 }
