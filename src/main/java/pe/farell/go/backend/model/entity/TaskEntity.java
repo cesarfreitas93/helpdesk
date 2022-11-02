@@ -1,16 +1,11 @@
 package pe.farell.go.backend.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,7 +24,6 @@ public class TaskEntity extends AuditModel{
     private String name;
 
     @Column(name = "description")
-    @Lob
     private String description;
 
     @Column(name = "status")
@@ -39,11 +33,7 @@ public class TaskEntity extends AuditModel{
     private Integer assignedto;
 
     @Column(name = "files")
-    @Lob
     private String files;
-
-    @Column(name = "ticket")
-    private Integer ticket;
 
     @Column(name = "complete_at")
     private LocalDateTime completeAt;

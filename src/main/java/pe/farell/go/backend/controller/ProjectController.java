@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.farell.go.backend.model.dto.request.ProjectRequestDto;
-import pe.farell.go.backend.model.dto.request.TicketRequestCreateDto;
 import pe.farell.go.backend.model.dto.response.Content;
 import pe.farell.go.backend.model.dto.response.Response;
 import pe.farell.go.backend.model.dto.response.ResponseBase;

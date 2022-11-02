@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import pe.farell.go.backend.constant.EnumResponse;
 import pe.farell.go.backend.exception.ValidationException;
 import pe.farell.go.backend.model.dto.request.TicketRequestCreateDto;
+import pe.farell.go.backend.model.dto.response.Content;
 import pe.farell.go.backend.model.dto.response.Response;
+import pe.farell.go.backend.model.entity.PersonEntity;
 import pe.farell.go.backend.model.entity.SprintEntity;
 import pe.farell.go.backend.model.entity.TicketEntity;
 import pe.farell.go.backend.repository.SprintRepository;
@@ -16,6 +18,7 @@ import pe.farell.go.backend.service.Ticket;
 import pe.farell.go.backend.util.ResponseUtil;
 import pe.farell.go.backend.util.StringUtil;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -65,5 +68,11 @@ public class TicketService implements Ticket {
             return ResponseUtil.validateObj(null, msgNull);
         }
         return ResponseUtil.validateObj(entity.get(), null);
+    }
+
+    @Override
+    public Response<Content<TicketEntity>> getTicketsByProject(Integer id) {
+        List<TicketEntity> data = ticketRepository.findAllByProject(id);
+        return ResponseUtil.validateList(data, "La consulta de tickets no retorno resultados");
     }
 }
