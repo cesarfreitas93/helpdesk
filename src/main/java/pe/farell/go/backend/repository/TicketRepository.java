@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface TicketRepository extends JpaRepository<TicketEntity, Integer> {
     List<TicketEntity> findAllByProject(Integer idProject);
+
+    List<TicketEntity> findAllByProjectAndSprint(Integer idProject, Integer idSprint);
 }

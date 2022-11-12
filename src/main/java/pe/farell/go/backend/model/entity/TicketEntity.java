@@ -7,9 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "T_TICKETIT", schema = "tesis")
@@ -32,7 +30,7 @@ public class TicketEntity extends AuditModel {
     private Integer category;
 
     @Column(name = "weight")
-    private Integer weignt;
+    private Integer weight;
 
     @Column(name = "status")
     private Integer status;

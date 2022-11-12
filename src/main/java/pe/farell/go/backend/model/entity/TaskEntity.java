@@ -41,4 +41,6 @@ public class TaskEntity extends AuditModel{
     @Column(name = "complete_user")
     private Integer completeUser;
 
+    @Column(name = "id_ticket")
+    private Integer ticket;
 }

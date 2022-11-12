@@ -6,12 +6,18 @@ import org.springframework.stereotype.Service;
 import pe.farell.go.backend.constant.EnumResponse;
 import pe.farell.go.backend.exception.ValidationException;
 import pe.farell.go.backend.model.dto.request.SprintRequestCreateDto;
+import pe.farell.go.backend.model.dto.response.Content;
 import pe.farell.go.backend.model.dto.response.Response;
+import pe.farell.go.backend.model.dto.response.TicketDto;
+import pe.farell.go.backend.model.entity.ProjectEntity;
 import pe.farell.go.backend.model.entity.SprintEntity;
 import pe.farell.go.backend.repository.SprintRepository;
 import pe.farell.go.backend.service.Sprint;
 import pe.farell.go.backend.util.ResponseUtil;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -34,5 +40,18 @@ public class SprintService implements Sprint {
         sprintEntity.setBeginDate(request.getBeginDate().atStartOfDay());
         sprintEntity.setEndDate(request.getEndDate().atStartOfDay());
         return ResponseUtil.validateObj(sprintRepository.save(sprintEntity), null);
+    }
+
+    @Override
+    public Response<Content<SprintEntity>> getAll() {
+        List<SprintEntity> lista = sprintRepository.findAll();
+        Comparator<SprintEntity> comparatorDesc = Comparator.comparing(SprintEntity::getId).reversed();
+        Collections.sort(lista, comparatorDesc);
+        return ResponseUtil.validateList(lista, "La consulta de sprints no retorno resultados");
+    }
+
+    @Override
+    public Response<Content<SprintEntity>> getLast() {
+        return null;
     }
 }
