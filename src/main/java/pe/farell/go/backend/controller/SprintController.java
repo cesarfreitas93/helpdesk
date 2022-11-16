@@ -45,16 +45,5 @@ public class SprintController {
         return ResponseEntity.ok(this.sprintService.getAll());
     }
 
-    @ApiOperation("Consultar grafico pastel de tareas por sprint")
-    @GetMapping("/all")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Ok", response = ResponseBase.class),
-            @ApiResponse(code = 400, message = "Bad Request"),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Error en el servidor", response = ResponseBase.class)})
-    public ResponseEntity<Response<Content<SprintEntity>>> getPieChartDataBySprint() {
-        return ResponseEntity.ok(this.sprintService.getAll());
-    }
-
 
 }
