@@ -59,6 +59,6 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
         ResponseBase responseDto = new ResponseBase();
         responseDto.setCode(ex.getCodigo());
         responseDto.setMsg(ex.getMessage());
-        return new ResponseEntity<>(responseDto, HttpStatus.OK);
+        return new ResponseEntity<>(responseDto, HttpStatus.BAD_REQUEST);
     }
 }

@@ -2,16 +2,11 @@ package pe.farell.go.backend.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import pe.farell.go.backend.security.model.entity.Rol;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "T_USERS", schema = "tesis", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
@@ -36,6 +31,8 @@ public class UserEntity extends AuditModel {
     @Column(name = "status")
     private Integer status;
 
-    @OneToOne(mappedBy = "user")
-    private PersonEntity person;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "IT_ROLE_USER", schema = "tesis", joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_rol"))
+    private Set<Rol> roles = new HashSet<>();
 }
