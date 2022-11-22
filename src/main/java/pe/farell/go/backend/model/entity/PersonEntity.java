@@ -4,16 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,13 +25,12 @@ public class PersonEntity {
     private Integer doctype;
 
     @Column(name = "docnumber")
-    private Integer docnumber;
+    private String docnumber;
 
     @Column(name = "dateofbirth")
     private LocalDateTime dateOfBirth;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "id_user", referencedColumnName = "id")
     private UserEntity user;
 

@@ -6,8 +6,11 @@ import org.springframework.stereotype.Service;
 import pe.farell.go.backend.constant.EnumResponse;
 import pe.farell.go.backend.exception.ValidationException;
 import pe.farell.go.backend.model.dto.request.TaskRequestCreateDto;
+import pe.farell.go.backend.model.dto.response.Content;
 import pe.farell.go.backend.model.dto.response.Response;
+import pe.farell.go.backend.model.dto.response.ReportTaskView;
 import pe.farell.go.backend.model.entity.TaskEntity;
+import pe.farell.go.backend.repository.ReportTaskRepository;
 import pe.farell.go.backend.repository.TaskRepository;
 import pe.farell.go.backend.service.Task;
 import pe.farell.go.backend.util.ResponseUtil;
@@ -22,6 +25,9 @@ public class TaskService implements Task {
 
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private ReportTaskRepository reportTaskRepository;
 
     @Override
     public Response<TaskEntity> save(TaskRequestCreateDto request) {
@@ -48,5 +54,16 @@ public class TaskService implements Task {
             throw new ValidationException(EnumResponse.C003.getCode(), "La tarea que desea abrir no existe.");
         }
         return ResponseUtil.validateObj(taskEntityOptional.get(), null);
+    }
+
+    @Override
+    public Response<Content<ReportTaskView>> getReportTaskBySprint(Integer id) {
+        Response<Content<ReportTaskView>> result = new Response<>();
+        Content<ReportTaskView> tuplaIntegerStringContent = new Content<>();
+        tuplaIntegerStringContent.setContent(reportTaskRepository.findAllBySprint(id));
+        result.setData(tuplaIntegerStringContent);
+        result.setCode(EnumResponse.C001.getCode());
+        result.setMsg(EnumResponse.C001.getMsg());
+        return result;
     }
 }

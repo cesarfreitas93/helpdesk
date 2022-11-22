@@ -1,5 +1,5 @@
 server:
-  port: 33115
+  port: 8080
   servlet:
     context-path: /backend
 spring:
@@ -11,9 +11,12 @@ spring:
     show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DS_PERDB_URL}
-    username: ${R_DB_USR}
-    password: ${R_DB_PWD}
+    url: postgres://dhqpbiewrcyjje:1941f2f66a5cb396c50d37db62e2234b3fb7886ac14a23d8ff17c35218051638@ec2-34-234-240-121.compute-1.amazonaws.com:5432/ded0ev2lbsks8
+    #${DS_PERDB_URL}
+    username: dhqpbiewrcyjje
+    #${R_DB_USR}
+    password: 1941f2f66a5cb396c50d37db62e2234b3fb7886ac14a23d8ff17c35218051638
+    #${R_DB_PWD}
     type: com.zaxxer.hikari.HikariDataSource
   jackson:
     serialization:

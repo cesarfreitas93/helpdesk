@@ -1,17 +1,13 @@
 package pe.farell.go.backend.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "T_TICKETIT", schema = "tesis")
@@ -28,14 +24,13 @@ public class TicketEntity extends AuditModel {
     private String name;
 
     @Column(name = "description")
-    @Lob
-    private String description;
+     private String description;
 
     @Column(name = "category")
     private Integer category;
 
     @Column(name = "weight")
-    private Integer weignt;
+    private Integer weight;
 
     @Column(name = "status")
     private Integer status;
@@ -55,4 +50,7 @@ public class TicketEntity extends AuditModel {
     @Column(name = "id_project")
     private Integer project;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JoinColumn(name = "id_ticket")
+    private List<TaskEntity> tasks = new ArrayList<>();
 }
