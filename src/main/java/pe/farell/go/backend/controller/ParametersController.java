@@ -24,7 +24,7 @@ public class ParametersController {
     @Autowired
     private ParametersService parametersService;
 
-    @ApiOperation("Consulta de estados de tareas")
+    @ApiOperation("Consulta de estados de tareas en lista")
     @GetMapping("/status/all")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Ok", response = ResponseBase.class),
