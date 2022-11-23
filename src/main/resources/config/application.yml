@@ -11,11 +11,11 @@ spring:
     show-sql: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: postgres://dhqpbiewrcyjje:1941f2f66a5cb396c50d37db62e2234b3fb7886ac14a23d8ff17c35218051638@ec2-34-234-240-121.compute-1.amazonaws.com:5432/ded0ev2lbsks8
+    url: postgres://marbkbvolqtcpc:e80d54350398a9a0994ff83234103f0dac372c09041b2dcae3bc864e8fda26f9@ec2-3-224-164-189.compute-1.amazonaws.com:5432/d614g87ohbmeo7
     #${DS_PERDB_URL}
-    username: dhqpbiewrcyjje
+    username: marbkbvolqtcpc
     #${R_DB_USR}
-    password: 1941f2f66a5cb396c50d37db62e2234b3fb7886ac14a23d8ff17c35218051638
+    password: e80d54350398a9a0994ff83234103f0dac372c09041b2dcae3bc864e8fda26f9
     #${R_DB_PWD}
     type: com.zaxxer.hikari.HikariDataSource
   jackson:
