@@ -11,4 +11,6 @@ public interface TicketRepository extends JpaRepository<TicketEntity, Integer> {
     List<TicketEntity> findAllByProject(Integer idProject);
 
     List<TicketEntity> findAllByProjectAndSprint(Integer idProject, Integer idSprint);
+
+    List<TicketEntity> findAllByProjectAndSprintAndAndAssignedTo(Integer idProject, Integer idSprint, Integer idPerson);
 }

@@ -112,4 +112,45 @@ public class TicketService implements Ticket {
 
         return ResponseUtil.validateList(ticketDtoList, "La consulta de tickets no retorno resultados");
     }
+
+    @Override
+    public Response<Content<TicketDto>> getTicketsByProjectAndSprintAndPerson(Integer id, Integer idSprint, Integer idPerson) {
+        List<TicketEntity> data = ticketRepository.findAllByProjectAndSprintAndAndAssignedTo(id, idSprint, idPerson);
+        List<TicketDto> ticketDtoList = new ArrayList<>();
+
+        Comparator<TaskEntity> comparatorTaskDesc = Comparator.comparing(TaskEntity::getId).reversed();
+
+        for (TicketEntity tik: data) {
+            TicketDto ticketDto = new TicketDto();
+            mapper.map(tik, ticketDto);
+            List<TaskEntity> nuevo = new ArrayList<>();
+            List<TaskEntity> progress = new ArrayList<>();
+            List<TaskEntity> complete = new ArrayList<>();
+            for (TaskEntity task : tik.getTasks()) {
+                if (task.getStatus().equals(EnumStatus.S003.getCode())) {
+                    nuevo.add(task);
+                }
+                if (task.getStatus().equals(EnumStatus.S001.getCode())) {
+                    progress.add(task);
+                }
+                if (task.getStatus().equals(EnumStatus.S005.getCode())) {
+                    complete.add(task);
+                }
+            }
+
+            Collections.sort(nuevo, comparatorTaskDesc);
+            Collections.sort(progress, comparatorTaskDesc);
+            Collections.sort(complete, comparatorTaskDesc);
+
+            ticketDto.setNews(nuevo);
+            ticketDto.setProgress(progress);
+            ticketDto.setComplete(complete);
+            ticketDtoList.add(ticketDto);
+        }
+
+        Comparator<TicketDto> comparatorDesc = Comparator.comparing(TicketDto::getId).reversed();
+        Collections.sort(ticketDtoList, comparatorDesc);
+
+        return ResponseUtil.validateList(ticketDtoList, "La consulta de tickets no retorno resultados");
+    }
 }

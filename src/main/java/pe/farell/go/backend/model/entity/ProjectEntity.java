@@ -28,17 +28,14 @@ public class ProjectEntity extends AuditModel {
     private String name;
 
     @Column(name = "description")
-    @Lob
     private String description;
 
     @Column(name = "status")
     private Integer status;
 
     @Column(name = "config")
-    @Lob
     private String config;
 
     @Column(name = "files")
-    @Lob
     private String files;
 }

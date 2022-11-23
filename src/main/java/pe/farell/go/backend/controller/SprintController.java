@@ -45,5 +45,15 @@ public class SprintController {
         return ResponseEntity.ok(this.sprintService.getAll());
     }
 
+    @ApiOperation("Consulta de todos las proyectos del sistema")
+    @GetMapping("/{id}")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Ok", response = ResponseBase.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Error en el servidor", response = ResponseBase.class)})
+    public ResponseEntity<Response<SprintEntity>> bloqueoTarjeta(@PathVariable Integer id) {
+        return ResponseEntity.ok(this.sprintService.getById(id));
+    }
 
 }

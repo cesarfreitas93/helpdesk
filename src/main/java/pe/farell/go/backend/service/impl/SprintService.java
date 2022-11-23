@@ -51,7 +51,12 @@ public class SprintService implements Sprint {
     }
 
     @Override
-    public Response<Content<SprintEntity>> getLast() {
-        return null;
+    public Response<SprintEntity> getById(Integer id) {
+        Response<SprintEntity> dto = new Response<>();
+        dto.setCode(EnumResponse.C001.getCode());
+        dto.setMsg(EnumResponse.C001.getMsg());
+        dto.setData(sprintRepository.findById(id).get());
+        return dto;
     }
+
 }

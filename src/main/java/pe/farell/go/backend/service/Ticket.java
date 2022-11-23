@@ -16,4 +16,5 @@ public interface Ticket {
 
     Response<Content<TicketDto>> getTicketsByProject(Integer id, Integer sprint);
 
+    Response<Content<TicketDto>> getTicketsByProjectAndSprintAndPerson(Integer id, Integer idSprint, Integer idPerson);
 }

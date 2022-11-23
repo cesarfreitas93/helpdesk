@@ -116,4 +116,17 @@ public class TicketController {
             @ApiParam(example = "13") @PathVariable("idSprint") Integer idSprint) {
         return new ResponseEntity<>(this.ticketService.getTicketsByProject(id, idSprint), HttpStatus.OK);
     }
+
+    @GetMapping("/project/{id}/sprint/{idSprint}/person/{idPerson}")
+    @ApiOperation(value = "Consultar tickets por id de proyecto y sprint actual")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Consultar ticket y tareas by proyecto", response = TicketEntity.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Error en el servidor", response = ResponseBase.class) })
+    public ResponseEntity<Response<Content<TicketDto>>> getTicketByProjectAndSprintAndPerson(
+            @ApiParam(example = "13") @PathVariable("id") Integer id,
+            @ApiParam(example = "13") @PathVariable("idSprint") Integer idSprint,
+            @ApiParam(example = "13") @PathVariable("idPerson") Integer idPerson) {
+        return new ResponseEntity<>(this.ticketService.getTicketsByProjectAndSprintAndPerson(id, idSprint, idPerson), HttpStatus.OK);
+    }
 }

@@ -10,5 +10,5 @@ public interface Sprint {
     Response<SprintEntity> save(SprintRequestCreateDto request);
 
     Response<Content<SprintEntity>> getAll();
-    Response<Content<SprintEntity>> getLast();
+    Response<SprintEntity> getById(Integer id);
 }
